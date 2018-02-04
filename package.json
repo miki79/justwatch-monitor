@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "sls deploy -v",
+    "test": "npm run lint && jest",
+    "coverage": "cat ./.coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "lint": "eslint src"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +18,7 @@
   "devDependencies": {
     "aws-sdk": "^2.188.0",
     "aws-sdk-mock": "^1.7.0",
+    "coveralls": "^3.0.0",
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
