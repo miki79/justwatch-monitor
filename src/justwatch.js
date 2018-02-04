@@ -33,7 +33,7 @@ const getNewReleaseByProvider = (provider) => {
       request({ uri: 'https://apis.justwatch.com/content/titles/en_GB/new/single_provider?', qs: { body: getQueryNewRelease(provider, page, pageSize) }, json: true }, (err, response, body) => {
         if (err) {
           reject(err);
-        } else if (body && body.items) {
+        } else if (response.statusCode === 200 && body.items) {
           items = items.concat(body.items);
           if (page * pageSize < body.total_results) {
             getData(page + 1);
@@ -78,7 +78,7 @@ const getWatchList = token => new Promise((resolve, reject) => {
   }, (err, response, body) => {
     if (err) {
       reject(err);
-    } else if (body) {
+    } else if (response.statusCode === 200) {
       const { watchlist: { uk: list = [] } } = body;
       resolve(list);
     } else {
