@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get Notifications from Justwatch Get 1 notification 1`] = `"[{\\"provider\\":\\"Netflix\\",\\"object_type\\":\\"movie\\",\\"title\\":\\"The Baby-Sitters Club\\",\\"season\\":null}]"`;

@@ -5,7 +5,7 @@ const getQueryNewRelease = (provider, page, pageSize) => {
   const query = {
     age_certifications: null,
     content_types: null,
-    date: '2018-02-02', // moment().format('Y-MM-DD'),
+    date: moment().format('Y-MM-DD'),
     genres: null,
     languages: null,
     max_price: null,
@@ -39,13 +39,15 @@ const getNewReleaseByProvider = (provider) => {
       request({ uri: 'https://apis.justwatch.com/content/titles/en_GB/new/single_provider?', qs: { body: getQueryNewRelease(provider, page, pageSize) }, json: true }, (err, response, body) => {
         if (err) {
           reject(err);
-        } else {
+        } else if (body && body.items) {
           items = items.concat(body.items);
           if (page * pageSize < body.total_results) {
             getData(page + 1);
           } else {
             resolve(items);
           }
+        } else {
+          reject(new Error('No body from new release'));
         }
       });
     };
@@ -86,7 +88,7 @@ const getWatchList = token => new Promise((resolve, reject) => {
       const { watchlist: { uk: list = [] } } = body;
       resolve(list);
     } else {
-      reject(new Error(`No body from Watchlist: ${JSON.stringify(response)}`));
+      reject(new Error('No body from Watchlist'));
     }
   });
 });

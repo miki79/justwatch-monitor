@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get Notifications from Justwatch Get 1 notification 1`] = `
+Array [
+  Object {
+    "object_type": "movie",
+    "provider": "Netflix",
+    "season": null,
+    "title": "The Baby-Sitters Club",
+  },
+]
+`;
+
+exports[`Get Notifications from Justwatch Get 3 notifications 1`] = `
+Array [
+  Object {
+    "object_type": "movie",
+    "provider": "Netflix",
+    "season": null,
+    "title": "Pay the Ghost",
+  },
+  Object {
+    "object_type": "movie",
+    "provider": "Sky GO",
+    "season": null,
+    "title": "King Arthur: Legend of the Sword",
+  },
+]
+`;
+
+exports[`Get Notifications from Justwatch Get no notification 1`] = `Array []`;

@@ -1,0 +1,339 @@
+{
+  "page": 1,
+  "page_size": 14,
+  "total_pages": 1,
+  "total_results": 14,
+  "items": [
+    {
+      "id": 81249,
+      "title": "Season 2",
+      "full_path": "/uk/tv-series/the-good-place/season-2",
+      "poster": "/poster/20265296/{profile}",
+      "original_release_year": 2017,
+      "object_type": "show_season",
+      "original_title": "Season 2",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 12,
+          "new_element_count": 1
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 12,
+          "new_element_count": 1
+        }
+      ],
+      "show_id": 41766,
+      "show_title": "The Good Place",
+      "season_number": 2
+    },
+    {
+      "id": 84255,
+      "title": "Season 2",
+      "full_path": "/uk/tv-series/beyond/season-2",
+      "poster": "/poster/40908606/{profile}",
+      "original_release_year": 2018,
+      "object_type": "show_season",
+      "original_title": "Season 2",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 4,
+          "new_element_count": 1
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 4,
+          "new_element_count": 1
+        }
+      ],
+      "show_id": 42324,
+      "show_title": "Beyond",
+      "season_number": 2
+    },
+    {
+      "id": 143260,
+      "title": "Pay the Ghost",
+      "full_path": "/uk/movie/pay-the-ghost",
+      "poster": "/poster/8688080/{profile}",
+      "original_release_year": 2015,
+      "object_type": "movie",
+      "original_title": "Pay the Ghost",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 81797,
+      "title": "Season 1",
+      "full_path": "/uk/tv-series/altered-carbon/season-1",
+      "poster": "/poster/42624163/{profile}",
+      "original_release_year": 2018,
+      "object_type": "show_season",
+      "original_title": "Temporada 1",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 10,
+          "new_element_count": 10
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "4k",
+          "element_count": 10,
+          "new_element_count": 10
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 10,
+          "new_element_count": 10
+        }
+      ],
+      "show_id": 54102,
+      "show_title": "Altered Carbon",
+      "season_number": 1
+    },
+    {
+      "id": 84747,
+      "title": "Season 1",
+      "full_path": "/uk/tv-series/a-korean-odyssey/season-1",
+      "poster": "/poster/35517732/{profile}",
+      "original_release_year": 2017,
+      "object_type": "show_season",
+      "original_title": "Season 1",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 10,
+          "new_element_count": 2
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 10,
+          "new_element_count": 2
+        }
+      ],
+      "show_id": 76753,
+      "show_title": "A Korean Odyssey",
+      "season_number": 1
+    },
+    {
+      "id": 111980,
+      "title": "The Cable Guy",
+      "full_path": "/uk/movie/the-cable-guy",
+      "poster": "/poster/8814743/{profile}",
+      "original_release_year": 1996,
+      "object_type": "movie",
+      "original_title": "The Cable Guy",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 144649,
+      "title": "Deliver Us from Evil",
+      "full_path": "/uk/movie/deliver-us-from-evil-2014",
+      "poster": "/poster/10673510/{profile}",
+      "original_release_year": 2014,
+      "object_type": "movie",
+      "original_title": "Deliver Us from Evil",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 135219,
+      "title": "Some Kind of Beautiful",
+      "full_path": "/uk/movie/some-kind-of-beautiful",
+      "poster": "/poster/8642529/{profile}",
+      "original_release_year": 2015,
+      "object_type": "movie",
+      "original_title": "Some Kind of Beautiful",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 44032,
+      "title": "The Adventures of Elmo in Grouchland",
+      "full_path": "/uk/movie/the-adventures-of-elmo-in-grouchland",
+      "poster": "/poster/11095068/{profile}",
+      "original_release_year": 1999,
+      "object_type": "movie",
+      "original_title": "The Adventures of Elmo in Grouchland",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 12243,
+      "title": "The Baby-Sitters Club",
+      "full_path": "/uk/movie/the-baby-sitters-club",
+      "poster": "/poster/11261185/{profile}",
+      "original_release_year": 1995,
+      "object_type": "movie",
+      "original_title": "The Baby-Sitters Club",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        }
+      ]
+    },
+    {
+      "id": 357708,
+      "title": "The Bros",
+      "full_path": "/uk/movie/the-bros",
+      "poster": "/poster/31087474/{profile}",
+      "original_release_year": 2017,
+      "object_type": "movie",
+      "original_title": "부라더",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 87493,
+      "title": "Season 1",
+      "full_path": "/uk/tv-series/luna-petunia-return-to-amazia/season-1",
+      "poster": "/poster/42652157/{profile}",
+      "original_release_year": 2018,
+      "object_type": "show_season",
+      "original_title": "Season 1",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 5,
+          "new_element_count": 5
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 5,
+          "new_element_count": 5
+        }
+      ],
+      "show_id": 78444,
+      "show_title": "Luna Petunia Return to Amazia",
+      "season_number": 1
+    },
+    {
+      "id": 370472,
+      "title": "Kavin Jay: Everybody Calm Down!",
+      "full_path": "/uk/movie/kavin-jay-everybody-calm-down",
+      "poster": "/poster/42630848/{profile}",
+      "original_release_year": 2018,
+      "object_type": "movie",
+      "original_title": "Kavin Jay: Everybody Calm Down!",
+      "offers": [
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "4k"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "hd"
+        },
+        {
+          "monetization_type": "flatrate",
+          "presentation_type": "sd"
+        }
+      ]
+    },
+    {
+      "id": 87497,
+      "title": "Season 1",
+      "full_path": "/uk/tv-series/coach-snoop/season-1",
+      "poster": "/poster/42693331/{profile}",
+      "original_release_year": 2016,
+      "object_type": "show_season",
+      "original_title": "Season 1",
+      "offers": [
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "hd",
+          "element_count": 2,
+          "new_element_count": 2
+        },
+        {
+          "type": "aggregated",
+          "monetization_type": "flatrate",
+          "presentation_type": "sd",
+          "element_count": 2,
+          "new_element_count": 2
+        }
+      ],
+      "show_id": 78442,
+      "show_title": "Coach Snoop",
+      "season_number": 1
+    }
+  ]
+}
