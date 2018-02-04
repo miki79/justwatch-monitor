@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "sls deploy -v",
     "test": "npm run lint && jest",
-    "coverage": "cat ./.coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "coverage": "cat ./.coverage/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js",
     "lint": "eslint src"
   },
   "keywords": [],
@@ -18,7 +18,7 @@
   "devDependencies": {
     "aws-sdk": "^2.188.0",
     "aws-sdk-mock": "^1.7.0",
-    "coveralls": "^3.0.0",
+    "codeclimate-test-reporter": "^0.5.0",
     "eslint": "^4.17.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
