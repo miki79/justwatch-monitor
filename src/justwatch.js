@@ -1,5 +1,6 @@
 const request = require('request');
 const moment = require('moment');
+const https = require('https');
 
 const getQueryNewRelease = (provider, page, pageSize) => {
   const query = {
@@ -30,19 +31,36 @@ const getNewReleaseByProvider = (provider) => {
   return new Promise((resolve, reject) => {
     let items = [];
     const getData = (page) => {
-      request({ uri: 'https://apis.justwatch.com/content/titles/en_GB/new/single_provider?', qs: { body: getQueryNewRelease(provider, page, pageSize) }, json: true }, (err, response, body) => {
-        if (err) {
+      const url = `https://apis.justwatch.com/content/titles/en_GB/new/single_provider?body=${getQueryNewRelease(
+        provider,
+        page,
+        pageSize,
+      )}`;
+      https.get(url, (res) => {
+        let body = '';
+        res.on('data', (data) => {
+          body += data;
+        });
+        res.on('error', (err) => {
           reject(err);
-        } else if (response.statusCode === 200 && body.items) {
-          items = items.concat(body.items);
-          if (page * pageSize < body.total_results) {
-            getData(page + 1);
-          } else {
-            resolve(items);
+        });
+        res.on('end', () => {
+          try {
+            body = JSON.parse(body);
+          } catch (e) {
+            reject(new Error('No body from new release'));
           }
-        } else {
-          reject(new Error('No body from new release'));
-        }
+          if (body.items) {
+            items = items.concat(body.items);
+            if (page * pageSize < body.total_results) {
+              getData(page + 1);
+            } else {
+              resolve(items);
+            }
+          } else {
+            reject(new Error('No body from new release'));
+          }
+        });
       });
     };
     getData(1);
@@ -58,8 +76,8 @@ const getNewRelease = (providers) => {
         list[item.id] = {
           provider: providers[provider],
           object_type: item.object_type,
-          title: (item.object_type === 'show_season') ? item.show_title : item.title,
-          season: (item.object_type === 'show_season') ? item.title : null,
+          title: item.object_type === 'show_season' ? item.show_title : item.title,
+          season: item.object_type === 'show_season' ? item.title : null,
         };
       });
     }));
@@ -68,24 +86,40 @@ const getNewRelease = (providers) => {
   return Promise.all(promises).then(() => list);
 };
 
-const getWatchList = token => new Promise((resolve, reject) => {
-  request({
-    uri: 'https://userapi.justwatch.com/store',
-    json: true,
-    headers: {
-      authorization: `Bearer ${token}`,
-    },
-  }, (err, response, body) => {
-    if (err) {
+const getWatchList = token =>
+  new Promise((resolve, reject) => {
+    const options = {
+      host: 'userapi.justwatch.com',
+      path: '/store',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', (data) => {
+        body += data;
+      });
+      res.on('error', (err) => {
+        reject(err);
+      });
+      res.on('end', () => {
+        try {
+          body = JSON.parse(body);
+        } catch (e) {
+          return reject(new Error('No body from Watchlist'));
+        }
+        const { watchlist: { uk: list = [] } } = body;
+        resolve(list);
+      });
+    });
+    req.on('error', (err) => {
       reject(err);
-    } else if (response.statusCode === 200) {
-      const { watchlist: { uk: list = [] } } = body;
-      resolve(list);
-    } else {
-      reject(new Error('No body from Watchlist'));
-    }
+    });
+    req.end();
   });
-});
 
 const getProviders = () => ({
   nfx: 'Netflix',
@@ -93,8 +127,8 @@ const getProviders = () => ({
   amz: 'Amazon',
 });
 
-const getNotification = token => Promise.all([getWatchList(token), getNewRelease(getProviders())])
-  .then((data) => {
+const getNotification = token =>
+  Promise.all([getWatchList(token), getNewRelease(getProviders())]).then((data) => {
     const [watchList, newRelease] = data;
     const notifications = [];
     watchList.forEach((item) => {
@@ -106,4 +140,3 @@ const getNotification = token => Promise.all([getWatchList(token), getNewRelease
   });
 
 module.exports = { getNotification };
-
