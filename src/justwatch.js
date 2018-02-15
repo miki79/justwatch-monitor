@@ -1,4 +1,3 @@
-const request = require('request');
 const moment = require('moment');
 const https = require('https');
 
@@ -112,7 +111,7 @@ const getWatchList = token =>
           return reject(new Error('No body from Watchlist'));
         }
         const { watchlist: { uk: list = [] } } = body;
-        resolve(list);
+        return resolve(list);
       });
     });
     req.on('error', (err) => {
