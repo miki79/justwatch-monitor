@@ -23,7 +23,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jest": "^21.7.0",
     "jest": "^22.1.4",
-    "nock": "^9.1.6"
+    "nock": "^10.0.6"
   },
   "jest": {
     "coverageDirectory": "./.coverage/",
