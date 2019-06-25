@@ -70,55 +70,58 @@ const getNewRelease = (providers) => {
   const promises = [];
   const list = {};
   Object.keys(providers).forEach((provider) => {
-    promises.push(getNewReleaseByProvider(provider).then((items) => {
-      items.forEach((item) => {
-        list[item.id] = {
-          provider: providers[provider],
-          object_type: item.object_type,
-          title: item.object_type === 'show_season' ? item.show_title : item.title,
-          season: item.object_type === 'show_season' ? item.title : null,
-        };
-      });
-    }));
+    promises.push(
+      getNewReleaseByProvider(provider).then((items) => {
+        items.forEach((item) => {
+          list[item.id] = {
+            provider: providers[provider],
+            object_type: item.object_type,
+            title: item.object_type === 'show_season' ? item.show_title : item.title,
+            season: item.object_type === 'show_season' ? item.title : null,
+          };
+        });
+      }),
+    );
   });
 
   return Promise.all(promises).then(() => list);
 };
 
-const getWatchList = token =>
-  new Promise((resolve, reject) => {
-    const options = {
-      host: 'userapi.justwatch.com',
-      path: '/store',
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (data) => {
-        body += data;
-      });
-      res.on('error', (err) => {
-        reject(err);
-      });
-      res.on('end', () => {
-        try {
-          body = JSON.parse(body);
-        } catch (e) {
-          return reject(new Error('No body from Watchlist'));
-        }
-        const { watchlist: { uk: list = [] } } = body;
-        return resolve(list);
-      });
+const getWatchList = token => new Promise((resolve, reject) => {
+  const options = {
+    host: 'userapi.justwatch.com',
+    path: '/store',
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const req = https.request(options, (res) => {
+    let body = '';
+    res.on('data', (data) => {
+      body += data;
     });
-    req.on('error', (err) => {
+    res.on('error', (err) => {
       reject(err);
     });
-    req.end();
+    res.on('end', () => {
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        return reject(new Error('No body from Watchlist'));
+      }
+      const {
+        watchlist: { uk: list = [] },
+      } = body;
+      return resolve(list);
+    });
   });
+  req.on('error', (err) => {
+    reject(err);
+  });
+  req.end();
+});
 
 const getProviders = () => ({
   nfx: 'Netflix',
@@ -126,8 +129,8 @@ const getProviders = () => ({
   amz: 'Amazon',
 });
 
-const getNotification = token =>
-  Promise.all([getWatchList(token), getNewRelease(getProviders())]).then((data) => {
+const getNotification = token => Promise.all([getWatchList(token), getNewRelease(getProviders())])
+  .then((data) => {
     const [watchList, newRelease] = data;
     const notifications = [];
     watchList.forEach((item) => {
