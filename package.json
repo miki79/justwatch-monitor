@@ -18,7 +18,7 @@
     "aws-sdk": "^2.482.0",
     "aws-sdk-mock": "^4.4.0",
     "codeclimate-test-reporter": "^0.5.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jest": "^21.27.2",
